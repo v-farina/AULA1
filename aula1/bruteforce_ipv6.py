@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 import dns.resolver
+from threading import *
+
 myquery = dns.resolver.Resolver()
 domain = "megacorpone.com"
 
@@ -28,3 +30,6 @@ def  bruteforce_dns_ipv6(_wordlist):
             
 
 bruteforce_dns_ipv6("file.txt")
+thread_ipv6 = Thread(target=bruteforce_dns_ipv6,args=('file.txt',))
+thread_ipv6.start()
+
